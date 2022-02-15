@@ -4,14 +4,14 @@ body {
 h1{
     font-size: 6rem;
 }
-.bounce {
+.warp {
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     display: inline-block;
   }
   
-  .bounce:hover {
+  .warp:hover {
     color: rebeccapurple;
     animation-name: warpText;
   }

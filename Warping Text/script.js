@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    var letters = $('h1').text();
-    var nHTML = '';
-    for (var letter of letters) {
-      nHTML += "<span class='bounce'>" + letter + "</span>";
+    let letters = $('h1').text();
+    let warped = '';
+    for (let letter of letters) {
+      warped += "<span class='warp'>" + letter + "</span>";
     }
-    $('h1').html(nHTML);
+    $('h1').html(warped);
   })
