@@ -21,6 +21,9 @@ tiles.addTo(myMap);
 
 const issApiUrl = "https://api.wheretheiss.at/v1/satellites/25544?units=miles";
 
+// first time the function is called
+let firstTime = true;
+
 // asynchronous function to fetch iss location
 async function getISSLocation(){
     const response = await fetch(issApiUrl);
@@ -32,14 +35,20 @@ async function getISSLocation(){
     // set the marker to the current ISS position
     marker.setLatLng([latitude, longitude]);
 
-    // move the map so it is centerred on ISS location
-    myMap.setView([latitude, longitude],1.5)
+    // move the map so it is centerred on ISS location, first time only, to stop map moving
+    if (firstTime){
+        myMap.setView([latitude, longitude],2.5)
+        firstTime = false;
+    }
 
-    document.getElementById("alt").textContent = altitude;
-    document.getElementById("vel").textContent = velocity;
-    document.getElementById("lat").textContent = latitude;
-    document.getElementById("lon").textContent = longitude;
+    document.getElementById("alt").textContent = altitude.toFixed(2);
+    document.getElementById("vel").textContent = velocity.toFixed(2);
+    document.getElementById("lat").textContent = latitude.toFixed(2);
+    document.getElementById("lon").textContent = longitude.toFixed(2);
     document.getElementById("vis").textContent = visibility;
 };
+// call function to move the ISS to new position on map
 getISSLocation();
 
+// get new data every 5 seconds
+setInterval(getISSLocation, 5000);
