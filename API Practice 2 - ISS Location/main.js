@@ -4,9 +4,9 @@ const myMap = L.map('issMap').setView([0,0],1.5);
 // Making a marker with a custom icon
 const issIcon = L.icon({
     iconUrl: 'iss200.png',
-    iconSize: [50, 32],
+    iconSize: [100, 64],
     // set anchor in middle of icon, (50% of the size)
-    iconAnchor: [25, 16]
+    iconAnchor: [50, 32]
   });
 //   add custom marker to map at lat,long 0,0 initially
   const marker = L.marker([0, 0], { icon: issIcon }).addTo(myMap);
@@ -37,7 +37,7 @@ async function getISSLocation(){
 
     // move the map so it is centerred on ISS location, first time only, to stop map moving
     if (firstTime){
-        myMap.setView([latitude, longitude],2.5)
+        myMap.setView([latitude, longitude],3.5)
         firstTime = false;
     }
 
