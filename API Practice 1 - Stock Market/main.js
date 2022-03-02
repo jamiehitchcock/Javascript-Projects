@@ -28,6 +28,7 @@ async function getStockData(){
         let currency = stock["currency"];
         let previous = stock["previous_close_price"];
         let change = stock["day_change"];
+        let marketCap = stock["market_cap"];
     
         // show results in console log
         console.log(data);
@@ -40,15 +41,17 @@ async function getStockData(){
         console.log(`price is ${price} ${currency}`);
         console.log(`previous is ${previous} ${currency}`);
         console.log(`change is ${change}`);
+        console.log(`market cap is ${marketCap}`);
 
         // results to be displayed
         const result = `
-        <p>Ticker: ${ticker}</p>
-        <p>Name: ${name}</p>
-        <p>Exchange: ${exchange}</p>
-        <p>Price: <span id="price">${price}</span> ${currency}</p>
-        <p>Previous price: ${previous} ${currency}</p>
-        <p>Change: <span id="change">${change}%</span></p>
+        <p><b>Ticker:</b> ${ticker}</p>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Exchange:</b> ${exchange}</p>
+        <p><b>Price:</b> <span id="price">${price}</span> ${currency}</p>
+        <p><b>Previous price:</b> ${previous} ${currency}</p>
+        <p><b>Change:</b> <span id="change">${change}%</span></p>
+        <p><b>Market Cap:</b> ${marketCap}</p>
         `;
 
         // display results in document
@@ -67,11 +70,11 @@ async function getStockData(){
         console.log("Error!");
         console.log(e);
         // ask for a valid symbol if not fetch fails on that symbol
-        output.innerHTML = `<p>${symbol} not found. Please enter a valid symbol.</p>`;
+        output.innerHTML = `<p>${symbol} Not found. Please enter a valid symbol.</p>`;
     }
 };
 
 // run function when button is clicked
-btn.addEventListener("click", function(){
-    getStockData();
-}); 
+// btn.addEventListener("click", function(){
+//     getStockData();
+// }); 

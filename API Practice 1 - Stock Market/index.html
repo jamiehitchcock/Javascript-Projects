@@ -10,9 +10,10 @@
 <body>
     <div class="container">
         <h1>Real Time Stock Market Quotes</h1>
-        <h2>Enter Symbol for Stock</h2>
-        <input type="text" placeholder="eg: TSLA" id="input">
-        <button type="submit" id="btn">Search</button>
+        <div class="flex-row">
+            <input type="text" placeholder="Enter Symbol eg: TSLA" id="input">
+            <button type="submit" id="btn" onclick="getStockData()">Search</button>
+        </div>
         <div id="output"></div>
     </div>
     <script src="main.js"></script>
