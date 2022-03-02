@@ -11,6 +11,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
 h1{
     font-size: 3rem;
     margin: 0 50px;
@@ -27,6 +31,7 @@ h1{
 }
 #btn{
     background-color: white;
+    cursor: pointer;
 }
 #output{
     font-size: 3rem;
